@@ -29,6 +29,7 @@ public class Client {
         }
     }
 
+
     private static final String[] leagues = {
             "0.  UEFA Champions League",
             "1.  Primeira Liga",
@@ -51,4 +52,8 @@ public class Client {
             " / _, _/ /___ ___/ // /    / ___ |(__  |__  ) /_/ / /  /  __/ /_/ /  ",
             "/_/ |_/_____//____//_/    /_/  |_/____/____/\\__,_/_/   \\___/\\__,_/   \n"
     };
+
+    private static void pressEnter(){
+        System.out.print("Press ENTER to continue");
+    }
 }

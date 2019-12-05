@@ -3,6 +3,8 @@ bin-debug/
 bin-release/
 [Oo]bj/
 [Bb]in/
+*.DS_Store
+.idea
 
 # Other files and folders
 .settings/
@@ -13,6 +15,7 @@ restassured.txt
 *.air
 *.ipa
 *.apk
+*.iml
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
