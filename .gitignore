@@ -4,7 +4,7 @@ bin-release/
 [Oo]bj/
 [Bb]in/
 *.DS_Store
-.idea
+*.idea
 
 # Other files and folders
 .settings/

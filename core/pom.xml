@@ -3,10 +3,6 @@
     <groupId>restassured</groupId>
     <artifactId>core</artifactId>
     <version>1.0</version>
-    <modules>
-        <module>../soccer</module>
-    </modules>
-    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
