@@ -1,4 +1,5 @@
 import org.springframework.web.client.RestTemplate;
+import service.core.ClientRequest;
 
 import java.util.Scanner;
 
