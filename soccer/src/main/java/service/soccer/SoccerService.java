@@ -1,6 +1,7 @@
 package service.soccer;
 
 import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,21 +9,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+@RestController
 public class SoccerService {
 
-//    public static void main(String[] args){
-//        DateRequest test = getObjectFromJson();
-//        System.out.println("Request:");
-//        Gson gson = new Gson();
-//        String dateRequest = gson.toJson(test);
-//        System.out.println(dateRequest);
-//    }
-
-
-    public static DateRequest getObjectFromJson() {
-        String urlTarget = "https://api.football-data.org/v2/competitions/PL/matches?dateFrom=2019-12-04&dateTo=2019-12-05";
-
+    public static DateRequest getDateRequest(String urlTarget) {
         Gson gson = new Gson();
         String json = null;
         DateRequest result = null;
@@ -74,4 +69,12 @@ public class SoccerService {
             return "Something didn't work";
         }
     }
+
+    @RequestMapping(value="/{sport}/{league}/{date}",method=RequestMethod.GET)
+    public List<Match> getMatches(@PathVariable("sport") String sport, @PathVariable("league") String league, @PathVariable("date") String date) {
+        String url = "https://api.football-data.org/v2/competitions/" + league +"/matches?dateFrom="+ date +"&dateTo=" + date;
+        List<Match> matches = getDateRequest(url).getMatches();
+        return matches;
+    }
+
 }
