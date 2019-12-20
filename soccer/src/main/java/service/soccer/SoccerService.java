@@ -70,8 +70,8 @@ public class SoccerService {
         }
     }
 
-    @RequestMapping(value="/{sport}/{league}/{date}",method=RequestMethod.GET)
-    public List<Match> getMatches(@PathVariable("sport") String sport, @PathVariable("league") String league, @PathVariable("date") String date) {
+    @RequestMapping(value="/{league}/{date}", method=RequestMethod.GET)
+    public List<Match> getMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
         String url = "https://api.football-data.org/v2/competitions/" + league +"/matches?dateFrom="+ date +"&dateTo=" + date;
         List<Match> matches = getDateRequest(url).getMatches();
         return matches;
