@@ -1,38 +1,37 @@
 package service.core;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class ClientRequest {
-    public enum Leagues{
-        CHAMPIONS_LEAGUE,
-        PRIMEIRA_LIGA,
-        PREMIER_LEAGUE,
-        EREDIVISIE,
-        BUNDESLIGA,
-        LIGUE_1,
-        SERIE_A_IT,
-        LA_LIGA,
-        CHAMPIONSHIP,
-        SERIE_A_BR,
-        WORLDCUP,
-        EUROPE
+    public String league;
+    public String date;
+    public ArrayList<MatchDetails> matches;
+
+    public ClientRequest(){}
+
+    public String getLeague() {
+        return league;
     }
 
-    private Leagues league;
-    private Date startDate;
-    private Date endDate;
-    private List<String> teams;
+    public void setLeague(String league) {
+        this.league = league;
+    }
 
-    public ClientRequest(){ }
+    public String getDate() {
+        return date;
+    }
 
-    public Leagues getLeague(){ return league; }
-    public Date getStartDate(){ return startDate; }
-    public Date getEndDate(){ return endDate; }
-    public List<String> getTeams(){ return teams; }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-    public void setLeague(Leagues league) { this.league = league; }
-    public void setStartDate(Date startDate) { this.startDate = startDate; }
-    public void setEndDate(Date endDate) { this.endDate = endDate; }
-    public void setTeams(List<String> teams) { this.teams = teams; }
+    public ArrayList<MatchDetails> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(ArrayList<MatchDetails> matches) {
+        this.matches = matches;
+    }
 }
