@@ -19,15 +19,6 @@ import java.util.List;
 @RestController
 public class NBAService {
 
-    public static void main(String[] args){
-        NBADateRequest test = getNBADateRequest();
-        System.out.println("Request:");
-        Gson gson = new Gson();
-        String dateRequest = gson.toJson(test);
-        System.out.println(dateRequest);
-    }
-
-
     public static NBADateRequest getNBADateRequest(String url) {
         String urlTarget = url;
 
