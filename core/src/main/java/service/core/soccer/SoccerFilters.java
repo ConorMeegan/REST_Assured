@@ -1,4 +1,4 @@
-package service.core;
+package service.core.soccer;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

@@ -1,5 +1,5 @@
 
-package service.core;
+package service.core.nba;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

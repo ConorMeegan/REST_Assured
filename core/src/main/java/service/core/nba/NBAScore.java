@@ -1,5 +1,5 @@
 
-package service.core;
+package service.core.nba;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
