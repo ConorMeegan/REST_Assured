@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class VTeam {
+public class NBAAwayTeam {
 
     @SerializedName("teamId")
     @Expose
@@ -22,9 +22,9 @@ public class VTeam {
     @SerializedName("logo")
     @Expose
     private String logo;
-    @SerializedName("score")
+    @SerializedName("NBAScore")
     @Expose
-    private Score score;
+    private NBAScore NBAScore;
 
     public String getTeamId() {
         return teamId;
@@ -66,17 +66,17 @@ public class VTeam {
         this.logo = logo;
     }
 
-    public Score getScore() {
-        return score;
+    public NBAScore getNBAScore() {
+        return NBAScore;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setNBAScore(NBAScore NBAScore) {
+        this.NBAScore = NBAScore;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("teamId", teamId).append("shortName", shortName).append("fullName", fullName).append("nickName", nickName).append("logo", logo).append("score", score).toString();
+        return new ToStringBuilder(this).append("teamId", teamId).append("shortName", shortName).append("fullName", fullName).append("nickName", nickName).append("logo", logo).append("NBAScore", NBAScore).toString();
     }
 
 }

@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Api {
+public class NBAApi {
 
     @SerializedName("status")
     @Expose
@@ -20,9 +20,9 @@ public class Api {
     @SerializedName("filters")
     @Expose
     private List<String> filters = null;
-    @SerializedName("games")
+    @SerializedName("NBAGames")
     @Expose
-    private List<Game> games = null;
+    private List<NBAGame> NBAGames = null;
 
     public Integer getStatus() {
         return status;
@@ -56,17 +56,17 @@ public class Api {
         this.filters = filters;
     }
 
-    public List<Game> getGames() {
-        return games;
+    public List<NBAGame> getNBAGames() {
+        return NBAGames;
     }
 
-    public void setGames(List<Game> games) {
-        this.games = games;
+    public void setNBAGames(List<NBAGame> NBAGames) {
+        this.NBAGames = NBAGames;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("status", status).append("message", message).append("results", results).append("filters", filters).append("games", games).toString();
+        return new ToStringBuilder(this).append("status", status).append("message", message).append("results", results).append("filters", filters).append("NBAGames", NBAGames).toString();
     }
 
 }

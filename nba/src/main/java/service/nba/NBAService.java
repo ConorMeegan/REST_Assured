@@ -13,7 +13,7 @@ import java.net.URL;
 public class NBAService {
 
     public static void main(String[] args){
-        DateRequest test = getObjectFromJson();
+        NBADateRequest test = getObjectFromJson();
         System.out.println("Request:");
         Gson gson = new Gson();
         String dateRequest = gson.toJson(test);
@@ -21,17 +21,17 @@ public class NBAService {
     }
 
 
-    public static DateRequest getObjectFromJson() {
+    public static NBADateRequest getObjectFromJson() {
         String urlTarget = "https://api-nba-v1.p.rapidapi.com/games/date/2019-11-28";
 
         Gson gson = new Gson();
         String json = null;
-        DateRequest result = null;
+        NBADateRequest result = null;
 
         json = getJsonStringByUrl(urlTarget);
 
         if (json != null) {
-            result = gson.fromJson(json, DateRequest.class);
+            result = gson.fromJson(json, NBADateRequest.class);
         }
 
         return result;

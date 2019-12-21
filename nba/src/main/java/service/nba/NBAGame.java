@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Game {
+public class NBAGame {
 
     @SerializedName("seasonYear")
     @Expose
@@ -55,12 +55,12 @@ public class Game {
     @SerializedName("statusGame")
     @Expose
     private String statusGame;
-    @SerializedName("vTeam")
+    @SerializedName("NBAAwayTeam")
     @Expose
-    private VTeam vTeam;
-    @SerializedName("hTeam")
+    private NBAAwayTeam NBAAwayTeam;
+    @SerializedName("NBAHomeTeam")
     @Expose
-    private HTeam hTeam;
+    private NBAHomeTeam NBAHomeTeam;
 
     public String getSeasonYear() {
         return seasonYear;
@@ -190,25 +190,25 @@ public class Game {
         this.statusGame = statusGame;
     }
 
-    public VTeam getVTeam() {
-        return vTeam;
+    public NBAAwayTeam getVTeam() {
+        return NBAAwayTeam;
     }
 
-    public void setVTeam(VTeam vTeam) {
-        this.vTeam = vTeam;
+    public void setVTeam(NBAAwayTeam NBAAwayTeam) {
+        this.NBAAwayTeam = NBAAwayTeam;
     }
 
-    public HTeam getHTeam() {
-        return hTeam;
+    public NBAHomeTeam getHTeam() {
+        return NBAHomeTeam;
     }
 
-    public void setHTeam(HTeam hTeam) {
-        this.hTeam = hTeam;
+    public void setHTeam(NBAHomeTeam NBAHomeTeam) {
+        this.NBAHomeTeam = NBAHomeTeam;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("seasonYear", seasonYear).append("league", league).append("gameId", gameId).append("startTimeUTC", startTimeUTC).append("endTimeUTC", endTimeUTC).append("arena", arena).append("city", city).append("country", country).append("clock", clock).append("gameDuration", gameDuration).append("currentPeriod", currentPeriod).append("halftime", halftime).append("endOfPeriod", endOfPeriod).append("seasonStage", seasonStage).append("statusShortGame", statusShortGame).append("statusGame", statusGame).append("vTeam", vTeam).append("hTeam", hTeam).toString();
+        return new ToStringBuilder(this).append("seasonYear", seasonYear).append("league", league).append("gameId", gameId).append("startTimeUTC", startTimeUTC).append("endTimeUTC", endTimeUTC).append("arena", arena).append("city", city).append("country", country).append("clock", clock).append("gameDuration", gameDuration).append("currentPeriod", currentPeriod).append("halftime", halftime).append("endOfPeriod", endOfPeriod).append("seasonStage", seasonStage).append("statusShortGame", statusShortGame).append("statusGame", statusGame).append("NBAAwayTeam", NBAAwayTeam).append("NBAHomeTeam", NBAHomeTeam).toString();
     }
 
 }
