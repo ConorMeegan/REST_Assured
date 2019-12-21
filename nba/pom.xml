@@ -8,11 +8,6 @@
     <version>1.0</version>
 
     <dependencies>
-        <!--<dependency>
-            <groupId>restassured</groupId>
-            <artifactId>core</artifactId>
-            <version>1.0</version>
-        </dependency>-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -22,6 +17,12 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>restassured</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
