@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import service.core.ClientNbaRequest;
 import service.core.nba.NBADateRequest;
 import service.core.nba.NBAGame;
 
@@ -75,9 +76,9 @@ public class NBAService {
     }
 
     @RequestMapping(value="/nba/{date}", method= RequestMethod.GET)
-    public List<NBAGame> getNBAMatches(@PathVariable("date") String date) {
+    public ClientNbaRequest getNBAMatches(@PathVariable("date") String date) {
         String url = "https://api-nba-v1.p.rapidapi.com/games/date/"+date;
         List<NBAGame> nbaMatches = getNBADateRequest(url).getNBAApi().getNBAGames();
-        return nbaMatches;
+        return new ClientNbaRequest(date, nbaMatches);
     }
 }

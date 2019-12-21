@@ -72,8 +72,7 @@ public class SoccerService {
     public ClientSoccerRequest getMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
         String url = "https://api.football-data.org/v2/competitions/" + league +"/matches?dateFrom="+ date +"&dateTo=" + date;
         List<SoccerMatch> soccerMatches = getSoccerDateRequest(url).getSoccerMatches();
-        ClientSoccerRequest clientSoccerRequest = new ClientSoccerRequest(league, date, soccerMatches);
-        return clientSoccerRequest;
+        return new ClientSoccerRequest(league, date, soccerMatches);
     }
 
 }

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientSoccerRequest {
+
+    public static final String TYPE = "Soccer";
     public String league;
     public String date;
     public ArrayList<MatchDetails> matches;
