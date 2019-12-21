@@ -16,12 +16,12 @@ import java.util.List;
 @RestController
 public class SoccerService {
 
-    public static SoccerDateRequest getDateRequest(String urlTarget) {
+    public static SoccerDateRequest getSoccerDateRequest(String urlTarget) {
         Gson gson = new Gson();
         String json = null;
         SoccerDateRequest result = null;
 
-        json = getJsonStringByUrl(urlTarget);
+        json = getJsonFromUrl(urlTarget);
 
         if (json != null) {
             result = gson.fromJson(json, SoccerDateRequest.class);
@@ -30,7 +30,7 @@ public class SoccerService {
         return result;
     }
 
-    public static String getJsonStringByUrl(String urlTarget) {
+    public static String getJsonFromUrl(String urlTarget) {
         try {
             URL url = new URL(urlTarget);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
@@ -41,9 +41,7 @@ public class SoccerService {
             http.setAllowUserInteraction(false);
             http.connect();
 
-            int status = http.getResponseCode();
-
-            if (status == 200) {
+            if (http.getResponseCode() == 200) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(http.getInputStream(), "UTF-8"));
                 StringBuilder sb = new StringBuilder();
                 String line;
@@ -56,23 +54,23 @@ public class SoccerService {
                 return sb.toString();
 
             }else {
-                return "URL does not answer.";
+                return http.getResponseMessage();
             }
 
         } catch (ProtocolException e) {
             e.printStackTrace();
-            return "Something didn't work";
+            return "Error";
 
         } catch (IOException e) {
             e.printStackTrace();
-            return "Something didn't work";
+            return "Error";
         }
     }
 
-    @RequestMapping(value="/{league}/{date}", method=RequestMethod.GET)
+    @RequestMapping(value="/soccer/{league}/{date}", method=RequestMethod.GET)
     public List<SoccerMatch> getMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
         String url = "https://api.football-data.org/v2/competitions/" + league +"/matches?dateFrom="+ date +"&dateTo=" + date;
-        List<SoccerMatch> soccerMatches = getDateRequest(url).getSoccerMatches();
+        List<SoccerMatch> soccerMatches = getSoccerDateRequest(url).getSoccerMatches();
         return soccerMatches;
     }
 
