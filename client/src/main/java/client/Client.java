@@ -5,17 +5,14 @@ import org.springframework.web.client.RestTemplate;
 import service.core.ClientRequest;
 
 import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Client {
-    private static Scanner in = new Scanner(System.in);
-    private static String regex = "//";
+    private static final Scanner in = new Scanner(System.in);
+    private static final String regex = "//";
 
     public static void main(String[] args){
         String host = "localhost:8080";
@@ -53,6 +50,7 @@ public class Client {
             int index = in.nextInt();
             String league = leagues.get(index);
 
+            // accept user choice of date
             // date format: yyyy-mm-dd
             boolean success = false;
             String dateString = null;
@@ -62,7 +60,11 @@ public class Client {
                 success = parseDate(dateString);
             }
 
-            System.out.println("You have chosen " + league.split(regex)[0] + ", " + dateString);
+            System.out.println("Requesting data for " + league.split(regex)[0] + " from the date " + dateString);
+            ClientRequest request = new ClientRequest();
+            request.setLeague(league.split(regex)[1].strip());
+            request.setDate(dateString);
+            System.out.println(request.getLeague() + " " + request.getDate());
         }
         catch (IOException e){
             e.printStackTrace();
