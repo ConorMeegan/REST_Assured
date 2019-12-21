@@ -1,11 +1,17 @@
 package client;
 
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.client.RestTemplate;
 import service.core.ClientRequest;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Client {
+    private static Scanner in = new Scanner(System.in);
+    private static String regex = "//";
+
     public static void main(String[] args){
         String host = "localhost:8080";
         if (args.length > 0)
@@ -13,41 +19,46 @@ public class Client {
 
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://" + host + "/";
-        Scanner in = new Scanner(System.in);
 
         // print welcome message
         System.out.println("Welcome to the Live Score System, created by");
         for (String s : art)
             System.out.println(s);
 
-        /*while (true){
-            ClientRequest request = new ClientRequest();
-            System.out.println("Choose league from the list below (or type \"exit\"): ");
-            for (String s : leagues)
-                System.out.println(s);
-            String input = in.nextLine();
-            if (input.equals("exit")){
-                break;
+        try {
+            pressEnter();
+
+            // print list of leagues available in the system
+            System.out.println("Select league:");
+            InputStream stream = Client.class.getClassLoader().getResourceAsStream("leagues.txt");
+            assert stream != null;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+            String line;
+            ArrayList<String> leagues = new ArrayList<>();
+            while ((line = reader.readLine()) != null){
+                if (!line.isBlank())
+                    leagues.add(line);
             }
-        }*/
+            int lineCount = 0;
+            for (String s : leagues){
+                System.out.println(lineCount++ + ".\t" + s.split(regex)[0]);
+            }
+
+            // accept user choice of league as index
+            int index = in.nextInt();
+            String league = leagues.get(index);
+
+            // date format: yyyy-mm-dd
+
+
+
+            System.out.println("You have chosen " + league.split(regex)[0]);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
-
-
-    private static final String[] leagues = {
-            "0.  UEFA Champions League",
-            "1.  Primeira Liga",
-            "2.  Premier League",
-            "3.  Eredivisie",
-            "4.  Bundesliga",
-            "5.  Ligue 1",
-            "6.  Serie A (Italy)",
-            "7.  La Liga",
-            "8.  EFL Championship",
-            "9.  Serie A (Brazil)",
-            "10. FIFA World Cup",
-            "11. UEFA European Championship"
-    };
 
     private static final String[] art = {
             "    ____  _________________   ___                                  __",
@@ -59,5 +70,6 @@ public class Client {
 
     private static void pressEnter(){
         System.out.print("Press ENTER to continue");
+        in.nextLine();
     }
 }
