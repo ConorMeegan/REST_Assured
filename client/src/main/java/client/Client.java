@@ -1,3 +1,5 @@
+package client;
+
 import org.springframework.web.client.RestTemplate;
 import service.core.ClientRequest;
 
@@ -18,7 +20,7 @@ public class Client {
         for (String s : art)
             System.out.println(s);
 
-        while (true){
+        /*while (true){
             ClientRequest request = new ClientRequest();
             System.out.println("Choose league from the list below (or type \"exit\"): ");
             for (String s : leagues)
@@ -27,7 +29,8 @@ public class Client {
             if (input.equals("exit")){
                 break;
             }
-        }
+        }*/
+
     }
 
 

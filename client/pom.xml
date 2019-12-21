@@ -26,7 +26,7 @@
     </dependencies>
 
     <properties>
-        <main.class>Client</main.class>
+        <main.class>client.Client</main.class>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
