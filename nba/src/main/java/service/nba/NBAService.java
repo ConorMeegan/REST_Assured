@@ -1,7 +1,12 @@
 package service.nba;
 
 import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import service.core.NBADateRequest;
+import service.core.NBAGame;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,12 +14,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.List;
 
-
+@RestController
 public class NBAService {
 
     public static void main(String[] args){
-        NBADateRequest test = getObjectFromJson();
+        NBADateRequest test = getNBADateRequest();
         System.out.println("Request:");
         Gson gson = new Gson();
         String dateRequest = gson.toJson(test);
@@ -22,14 +28,14 @@ public class NBAService {
     }
 
 
-    public static NBADateRequest getObjectFromJson() {
-        String urlTarget = "https://api-nba-v1.p.rapidapi.com/games/date/2019-11-28";
+    public static NBADateRequest getNBADateRequest(String url) {
+        String urlTarget = url;
 
         Gson gson = new Gson();
         String json = null;
         NBADateRequest result = null;
 
-        json = getJsonStringByUrl(urlTarget);
+        json = getJsonFromUrl(urlTarget);
 
         if (json != null) {
             result = gson.fromJson(json, NBADateRequest.class);
@@ -38,7 +44,7 @@ public class NBAService {
         return result;
     }
 
-    public static String getJsonStringByUrl(String urlTarget) {
+    public static String getJsonFromUrl(String urlTarget) {
         try {
             URL url = new URL(urlTarget);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
@@ -58,23 +64,29 @@ public class NBAService {
                 String line;
 
                 while ((line = br.readLine()) != null) {
-                    sb.append(line+"\n");
+                    sb.append(line + "\n");
                 }
 
                 br.close();
                 return sb.toString();
-
             }else {
-                return "URL does not answer.";
+                return http.getResponseMessage();
             }
 
         } catch (ProtocolException e) {
             e.printStackTrace();
-            return "Something didn't work";
+            return "Error";
 
         } catch (IOException e) {
             e.printStackTrace();
-            return "Something didn't work";
+            return "Error";
         }
+    }
+
+    @RequestMapping(value="/nba/{date}", method= RequestMethod.GET)
+    public List<NBAGame> getNBAMatches(@PathVariable("date") String date) {
+        String url = "https://api-nba-v1.p.rapidapi.com/games/date/"+date;
+        List<NBAGame> nbaMatches = getNBADateRequest(url).getNBAApi().getNBAGames();
+        return nbaMatches;
     }
 }
