@@ -1,10 +1,10 @@
-package service.core;
+package service.core.soccer;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class SoccerPenalties {
+public class SoccerExtraTime {
 
     @SerializedName("homeTeam")
     @Expose

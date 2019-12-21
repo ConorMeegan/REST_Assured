@@ -2,8 +2,8 @@ package service.soccer;
 
 import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
-import service.core.SoccerDateRequest;
-import service.core.SoccerMatch;
+import service.core.soccer.SoccerDateRequest;
+import service.core.soccer.SoccerMatch;
 
 import java.io.BufferedReader;
 import java.io.IOException;

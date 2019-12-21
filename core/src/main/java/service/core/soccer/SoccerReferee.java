@@ -1,10 +1,10 @@
-package service.core;
+package service.core.soccer;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class SoccerAwayTeam {
+public class SoccerReferee {
 
     @SerializedName("id")
     @Expose
@@ -12,6 +12,9 @@ public class SoccerAwayTeam {
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("nationality")
+    @Expose
+    private Object nationality;
 
     public Integer getId() {
         return id;
@@ -29,9 +32,17 @@ public class SoccerAwayTeam {
         this.name = name;
     }
 
+    public Object getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(Object nationality) {
+        this.nationality = nationality;
+    }
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("id", id).append("name", name).toString();
+        return new ToStringBuilder(this).append("id", id).append("name", name).append("nationality", nationality).toString();
     }
 
 }

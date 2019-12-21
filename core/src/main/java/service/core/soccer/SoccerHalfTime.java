@@ -1,4 +1,4 @@
-package service.core;
+package service.core.soccer;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
