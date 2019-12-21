@@ -1,8 +1,7 @@
 package client;
 
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.client.RestTemplate;
-import service.core.ClientRequest;
+import service.core.ClientSoccerRequest;
 
 import java.io.*;
 import java.time.format.DateTimeFormatter;
@@ -61,7 +60,7 @@ public class Client {
             }
 
             System.out.println("Requesting data for " + league.split(regex)[0] + " from the date " + dateString);
-            ClientRequest request = new ClientRequest();
+            ClientSoccerRequest request = new ClientSoccerRequest();
             request.setLeague(league.split(regex)[1].strip());
             request.setDate(dateString);
             System.out.println(request.getLeague() + " " + request.getDate());
