@@ -1,8 +1,6 @@
 package service.core;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class ClientRequest {
     public String league;

@@ -5,7 +5,12 @@ import org.springframework.web.client.RestTemplate;
 import service.core.ClientRequest;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Client {
@@ -49,10 +54,15 @@ public class Client {
             String league = leagues.get(index);
 
             // date format: yyyy-mm-dd
+            boolean success = false;
+            String dateString = null;
+            while (!success) {
+                System.out.println("Enter date (format: yyyy-mm-dd): ");
+                dateString = in.nextLine();
+                success = parseDate(dateString);
+            }
 
-
-
-            System.out.println("You have chosen " + league.split(regex)[0]);
+            System.out.println("You have chosen " + league.split(regex)[0] + ", " + dateString);
         }
         catch (IOException e){
             e.printStackTrace();
@@ -71,5 +81,20 @@ public class Client {
     private static void pressEnter(){
         System.out.print("Press ENTER to continue");
         in.nextLine();
+    }
+
+    private static boolean parseDate(String string){
+        if (!string.matches("\\d{4}-\\d{2}-\\d{2}"))
+            return false;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        try{
+            formatter.parse(string);
+        }
+        catch (DateTimeParseException e){
+            return false;
+        }
+
+        return true;
     }
 }
