@@ -1,4 +1,4 @@
-package service.soccer;
+package service.core;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,14 +6,14 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 import java.util.List;
 
-public class Match {
+public class SoccerMatch {
 
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("season")
     @Expose
-    private Season season;
+    private SoccerSeason soccerSeason;
     @SerializedName("utcDate")
     @Expose
     private String utcDate;
@@ -34,16 +34,16 @@ public class Match {
     private String lastUpdated;
     @SerializedName("score")
     @Expose
-    private Score score;
+    private SoccerScore soccerScore;
     @SerializedName("homeTeam")
     @Expose
-    private HomeTeam homeTeam;
+    private SoccerHomeTeam soccerHomeTeam;
     @SerializedName("awayTeam")
     @Expose
-    private AwayTeam awayTeam;
+    private SoccerAwayTeam soccerAwayTeam;
     @SerializedName("referees")
     @Expose
-    private List<Referee> referees = null;
+    private List<SoccerReferee> soccerReferees = null;
 
     public Integer getId() {
         return id;
@@ -53,12 +53,12 @@ public class Match {
         this.id = id;
     }
 
-    public Season getSeason() {
-        return season;
+    public SoccerSeason getSoccerSeason() {
+        return soccerSeason;
     }
 
-    public void setSeason(Season season) {
-        this.season = season;
+    public void setSoccerSeason(SoccerSeason soccerSeason) {
+        this.soccerSeason = soccerSeason;
     }
 
     public String getUtcDate() {
@@ -109,41 +109,41 @@ public class Match {
         this.lastUpdated = lastUpdated;
     }
 
-    public Score getScore() {
-        return score;
+    public SoccerScore getSoccerScore() {
+        return soccerScore;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setSoccerScore(SoccerScore soccerScore) {
+        this.soccerScore = soccerScore;
     }
 
-    public HomeTeam getHomeTeam() {
-        return homeTeam;
+    public SoccerHomeTeam getSoccerHomeTeam() {
+        return soccerHomeTeam;
     }
 
-    public void setHomeTeam(HomeTeam homeTeam) {
-        this.homeTeam = homeTeam;
+    public void setSoccerHomeTeam(SoccerHomeTeam soccerHomeTeam) {
+        this.soccerHomeTeam = soccerHomeTeam;
     }
 
-    public AwayTeam getAwayTeam() {
-        return awayTeam;
+    public SoccerAwayTeam getSoccerAwayTeam() {
+        return soccerAwayTeam;
     }
 
-    public void setAwayTeam(AwayTeam awayTeam) {
-        this.awayTeam = awayTeam;
+    public void setSoccerAwayTeam(SoccerAwayTeam soccerAwayTeam) {
+        this.soccerAwayTeam = soccerAwayTeam;
     }
 
-    public List<Referee> getReferees() {
-        return referees;
+    public List<SoccerReferee> getSoccerReferees() {
+        return soccerReferees;
     }
 
-    public void setReferees(List<Referee> referees) {
-        this.referees = referees;
+    public void setSoccerReferees(List<SoccerReferee> soccerReferees) {
+        this.soccerReferees = soccerReferees;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("id", id).append("season", season).append("utcDate", utcDate).append("status", status).append("matchday", matchday).append("stage", stage).append("group", group).append("lastUpdated", lastUpdated).append("score", score).append("homeTeam", homeTeam).append("awayTeam", awayTeam).append("referees", referees).toString();
+        return new ToStringBuilder(this).append("id", id).append("season", soccerSeason).append("utcDate", utcDate).append("status", status).append("matchday", matchday).append("stage", stage).append("group", group).append("lastUpdated", lastUpdated).append("score", soccerScore).append("homeTeam", soccerHomeTeam).append("awayTeam", soccerAwayTeam).append("referees", soccerReferees).toString();
     }
 
 }

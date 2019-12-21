@@ -1,17 +1,17 @@
-package service.soccer;
+package service.core;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Competition {
+public class SoccerCompetition {
 
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("area")
     @Expose
-    private Area area;
+    private SoccerArea soccerArea;
     @SerializedName("name")
     @Expose
     private String name;
@@ -33,12 +33,12 @@ public class Competition {
         this.id = id;
     }
 
-    public Area getArea() {
-        return area;
+    public SoccerArea getSoccerArea() {
+        return soccerArea;
     }
 
-    public void setArea(Area area) {
-        this.area = area;
+    public void setSoccerArea(SoccerArea soccerArea) {
+        this.soccerArea = soccerArea;
     }
 
     public String getName() {
@@ -75,7 +75,7 @@ public class Competition {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("id", id).append("area", area).append("name", name).append("code", code).append("plan", plan).append("lastUpdated", lastUpdated).toString();
+        return new ToStringBuilder(this).append("id", id).append("area", soccerArea).append("name", name).append("code", code).append("plan", plan).append("lastUpdated", lastUpdated).toString();
     }
 
 }

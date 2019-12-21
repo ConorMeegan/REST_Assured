@@ -1,31 +1,31 @@
-package service.soccer;
+package service.core;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class ExtraTime {
+public class SoccerFullTime {
 
     @SerializedName("homeTeam")
     @Expose
-    private Object homeTeam;
+    private Integer homeTeam;
     @SerializedName("awayTeam")
     @Expose
-    private Object awayTeam;
+    private Integer awayTeam;
 
-    public Object getHomeTeam() {
+    public Integer getHomeTeam() {
         return homeTeam;
     }
 
-    public void setHomeTeam(Object homeTeam) {
+    public void setHomeTeam(Integer homeTeam) {
         this.homeTeam = homeTeam;
     }
 
-    public Object getAwayTeam() {
+    public Integer getAwayTeam() {
         return awayTeam;
     }
 
-    public void setAwayTeam(Object awayTeam) {
+    public void setAwayTeam(Integer awayTeam) {
         this.awayTeam = awayTeam;
     }
 
