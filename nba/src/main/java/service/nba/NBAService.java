@@ -42,7 +42,7 @@ public class NBAService {
 
             http.setRequestMethod("GET");
             http.setRequestProperty("X-RapidAPI-Key", "4794051e44msh03068c280a619e0p105f6fjsnbc82b8495e6d");
-            http.setRequestProperty("X-RapidAPI-Host", "api-nba-v1.p.rapidapi.com");
+            http.setRequestProperty("X-RapidAPI-Host", "Api-nba-v1.p.rapidapi.com");
             http.setUseCaches(false);
             http.setAllowUserInteraction(false);
             http.connect();

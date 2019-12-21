@@ -1,0 +1,12 @@
+Champions League // CL
+Primeira Liga // PPL
+Premier League // PL
+Eredivisie // DED
+Bundesliga // BL1
+Ligue 1 // FL1
+Serie A // SA
+La Liga // PD
+Championship // ELC
+Brazilian Division One // BSA
+World Cup // WC
+European Championships // EC

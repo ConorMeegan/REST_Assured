@@ -7,7 +7,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class NBADateRequest {
 
-    @SerializedName("NBAApi")
+    @SerializedName("api")
     @Expose
     private NBAApi NBAApi;
 

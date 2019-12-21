@@ -20,7 +20,7 @@ public class NBAApi {
     @SerializedName("filters")
     @Expose
     private List<String> filters = null;
-    @SerializedName("NBAGames")
+    @SerializedName("games")
     @Expose
     private List<NBAGame> NBAGames = null;
 
