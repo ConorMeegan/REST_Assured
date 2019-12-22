@@ -64,17 +64,29 @@ public class Client {
             // send GET request to broadcaster
             System.out.println("Requesting data for " + league.split(regex)[0] + " from the date " + dateString);
             String leagueCode = league.split(regex)[1].strip();
+            String leagueText = league.split(regex)[0].strip();
+            ArrayList<MatchDetails> matches = null;
             if (leagueCode.equals("NBA")){
                 ClientNbaRequest response = restTemplate.getForObject(url + "nba/" + dateString, ClientNbaRequest.class);
-                for (MatchDetails match : response.getMatches())
-                    System.out.println(match.getHomeTeam() + " - " + match.getAwayTeam());
+                matches = response.getMatches();
             }
             else{
                 ClientSoccerRequest response = restTemplate.getForObject(url + "soccer/" + leagueCode + "/" + dateString, ClientSoccerRequest.class);
-                for (MatchDetails match : response.getMatches())
-                    System.out.println(match.getHomeTeam() + " - " + match.getAwayTeam());
+                matches = response.getMatches();
             }
 
+            // display received data
+            if (matches.isEmpty())
+                System.out.println("No matches have been played in the " + leagueText + "on the following date: " + dateString);
+            else{
+                System.out.println("League: " + leagueText);
+                System.out.println("Date: " + dateString);
+                System.out.println("========================================================================================");
+                System.out.println("           Home Team           |           Away Team           |   Score   |   Status");
+                System.out.println("----------------------------------------------------------------------------------------");
+                for (MatchDetails match : matches)
+                    System.out.println(String.format("%-26s     |%-26s     | %3s : %-3s |%s", match.getHomeTeam(), match.getAwayTeam(), match.getHomeTeamScore(), match.getAwayTeamScore(), match.getStatus()));
+            }
         }
         catch (IOException e){
             e.printStackTrace();
