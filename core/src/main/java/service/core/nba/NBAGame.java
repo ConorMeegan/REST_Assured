@@ -190,19 +190,19 @@ public class NBAGame {
         this.statusGame = statusGame;
     }
 
-    public NBAAwayTeam getVTeam() {
+    public NBAAwayTeam getAwayTeam() {
         return NBAAwayTeam;
     }
 
-    public void setVTeam(NBAAwayTeam NBAAwayTeam) {
+    public void setAwayTeam(NBAAwayTeam NBAAwayTeam) {
         this.NBAAwayTeam = NBAAwayTeam;
     }
 
-    public NBAHomeTeam getHTeam() {
+    public NBAHomeTeam getHomeTeam() {
         return NBAHomeTeam;
     }
 
-    public void setHTeam(NBAHomeTeam NBAHomeTeam) {
+    public void setHomeTeam(NBAHomeTeam NBAHomeTeam) {
         this.NBAHomeTeam = NBAHomeTeam;
     }
 

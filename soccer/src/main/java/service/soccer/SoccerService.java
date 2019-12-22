@@ -2,6 +2,7 @@ package service.soccer;
 
 import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
+import service.core.ClientSoccerRequest;
 import service.core.soccer.SoccerDateRequest;
 import service.core.soccer.SoccerMatch;
 
@@ -68,10 +69,10 @@ public class SoccerService {
     }
 
     @RequestMapping(value="/soccer/{league}/{date}", method=RequestMethod.GET)
-    public List<SoccerMatch> getMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
+    public ClientSoccerRequest getMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
         String url = "https://api.football-data.org/v2/competitions/" + league +"/matches?dateFrom="+ date +"&dateTo=" + date;
         List<SoccerMatch> soccerMatches = getSoccerDateRequest(url).getSoccerMatches();
-        return soccerMatches;
+        return new ClientSoccerRequest(league, date, soccerMatches);
     }
 
 }

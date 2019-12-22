@@ -2,13 +2,21 @@ package service.core;
 
 public class MatchDetails {
 
-    private String homeTeam;
-    private String awayTeam;
-    private String homeTeamScore;
-    private String awayTeamScore;
-    private String Status;
+    public String homeTeam;
+    public String awayTeam;
+    public String homeTeamScore;
+    public String awayTeamScore;
+    public String status;
 
     public MatchDetails(){}
+
+    public MatchDetails(String homeTeam, String awayTeam, String homeTeamScore, String awayTeamScore, String status){
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+        this.homeTeamScore = homeTeamScore;
+        this.awayTeamScore = awayTeamScore;
+        this.status = status;
+    }
 
     public String getHomeTeam() {
         return homeTeam;
@@ -43,11 +51,11 @@ public class MatchDetails {
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        status = status;
     }
 
 

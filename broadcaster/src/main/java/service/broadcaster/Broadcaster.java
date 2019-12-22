@@ -1,11 +1,7 @@
 package service.broadcaster;
 
-import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-import service.core.ClientRequest;
-
-import java.util.ArrayList;
+import service.core.ClientSoccerRequest;
 
 /**
  *
@@ -32,26 +28,26 @@ public class Broadcaster {
      * Soccer Matches caller
      */
     @RequestMapping(value="/soccer/{league}/{date}",method=RequestMethod.GET)
-    public ClientRequest getSoccerMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
+    public ClientSoccerRequest getSoccerMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
         if(!league.equals("Sample league list")){
             //retun wrong league inputted
         }
 
         //TODO:return data after calling soccer service
-        return new ClientRequest();
+        return new ClientSoccerRequest();
     }
 
     /**
      * NBA Matches caller
      */
     @RequestMapping(value="/nba/{date}",method=RequestMethod.GET)
-    public ClientRequest getNbaMatches(@PathVariable("date")String date) {
+    public ClientSoccerRequest getNbaMatches(@PathVariable("date")String date) {
         //TODO:return data after calling nba service
-        return new ClientRequest();
+        return new ClientSoccerRequest();
     }
 
     // TODO: Add remaning sports
-/*
+    /*
     @RequestMapping(value="/{sport}/{league}/{date}",method=RequestMethod.GET)
     public String getMatch(@PathVariable("sport") String sport, @PathVariable("league") String league, @PathVariable("date") String date) {
         return "test";
