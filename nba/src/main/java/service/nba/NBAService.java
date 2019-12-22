@@ -75,7 +75,7 @@ public class NBAService {
         }
     }
 
-    @RequestMapping(value="/nba/{date}", method= RequestMethod.GET)
+    @RequestMapping(value="/{date}", method= RequestMethod.GET)
     public ClientNbaRequest getNBAMatches(@PathVariable("date") String date) {
         String url = "https://api-nba-v1.p.rapidapi.com/games/date/"+date;
         List<NBAGame> nbaMatches = getNBADateRequest(url).getNBAApi().getNBAGames();

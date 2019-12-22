@@ -1,7 +1,14 @@
 package service.broadcaster;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+import service.core.ClientNbaRequest;
 import service.core.ClientSoccerRequest;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -20,30 +27,55 @@ public class Broadcaster {
     private static final String[] hosts = new String[]{"Sample Host"};
 
     //Soccer Field
-    public static final String SOCCER = "soccer";
+    private static final String SOCCER = "soccer";
+    private static final String SOCCERSERVICE = "http://localhost:8083/";
+    //NBA field
+    private static final String NBA = "nba";
+    private static final String NBASERVICE = "http://localhost:8082/";
 
-    public static final String NBA = "nba";
+    //list of leagues for soccer
+    private static final String[] leagues = new String[]{"CL", "PPL", "PL", "DED", "BL1", "FL1", "SA", "PD", "ELC","BSA", "WC", "EC"};
 
     /**
      * Soccer Matches caller
      */
     @RequestMapping(value="/soccer/{league}/{date}",method=RequestMethod.GET)
     public ClientSoccerRequest getSoccerMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
-        if(!league.equals("Sample league list")){
-            //retun wrong league inputted
-        }
 
-        //TODO:return data after calling soccer service
-        return new ClientSoccerRequest();
+        //List to check if item is in it
+        List<String> leaguesList = Arrays.asList(leagues);
+
+        //check to see if leagues input is correct
+        if(leaguesList.contains(league)){
+
+            //create Rest Template
+            RestTemplate restTemplate = new RestTemplate();
+
+            //build REST URL to call
+            String url = SOCCERSERVICE + league + "/" + date;
+
+            //Return URL for the ClientSoccerRequest
+            return restTemplate.getForObject(url, ClientSoccerRequest.class);
+        }
+        else{
+            return new ClientSoccerRequest();
+        }
     }
 
     /**
      * NBA Matches caller
      */
     @RequestMapping(value="/nba/{date}",method=RequestMethod.GET)
-    public ClientSoccerRequest getNbaMatches(@PathVariable("date")String date) {
-        //TODO:return data after calling nba service
-        return new ClientSoccerRequest();
+    public ClientNbaRequest getNbaMatches(@PathVariable("date")String date) {
+
+        //create Rest Template
+        RestTemplate restTemplate = new RestTemplate();
+
+        //build REST URL to call
+        String url = NBASERVICE + date;
+
+        //Return URL for the ClientNbaRequest
+        return restTemplate.getForObject(url, ClientNbaRequest.class);
     }
 
     // TODO: Add remaning sports
