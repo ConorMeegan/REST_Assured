@@ -5,8 +5,6 @@ import org.springframework.web.client.RestTemplate;
 import service.core.ClientNbaRequest;
 import service.core.ClientSoccerRequest;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -1,7 +1,9 @@
 package client;
 
 import org.springframework.web.client.RestTemplate;
+import service.core.ClientNbaRequest;
 import service.core.ClientSoccerRequest;
+import service.core.MatchDetails;
 
 import java.io.*;
 import java.time.format.DateTimeFormatter;
@@ -14,7 +16,7 @@ public class Client {
     private static final String regex = "//";
 
     public static void main(String[] args){
-        String host = "localhost:8080";
+        String host = "localhost:8081";
         if (args.length > 0)
             host = args[0];
 
@@ -59,11 +61,20 @@ public class Client {
                 success = parseDate(dateString);
             }
 
+            // send GET request to broadcaster
             System.out.println("Requesting data for " + league.split(regex)[0] + " from the date " + dateString);
-            ClientSoccerRequest request = new ClientSoccerRequest();
-            request.setLeague(league.split(regex)[1].strip());
-            request.setDate(dateString);
-            System.out.println(request.getLeague() + " " + request.getDate());
+            String leagueCode = league.split(regex)[1].strip();
+            if (leagueCode.equals("NBA")){
+                ClientNbaRequest response = restTemplate.getForObject(url + "nba/" + dateString, ClientNbaRequest.class);
+                for (MatchDetails match : response.getMatches())
+                    System.out.println(match.getHomeTeam() + " - " + match.getAwayTeam());
+            }
+            else{
+                ClientSoccerRequest response = restTemplate.getForObject(url + "soccer/" + leagueCode + "/" + dateString, ClientSoccerRequest.class);
+                for (MatchDetails match : response.getMatches())
+                    System.out.println(match.getHomeTeam() + " - " + match.getAwayTeam());
+            }
+
         }
         catch (IOException e){
             e.printStackTrace();
