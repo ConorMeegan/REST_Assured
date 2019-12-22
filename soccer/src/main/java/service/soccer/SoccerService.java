@@ -78,7 +78,7 @@ public class SoccerService {
     }
 
     /**
-     * HAshmap withtall the values of leagues and their corresponding names*/
+     * Hashmap with all the values of leagues and their corresponding names*/
 
     private static final Map<String, String> leagues = new HashMap<String, String>(){
         {

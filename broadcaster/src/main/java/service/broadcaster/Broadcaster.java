@@ -11,14 +11,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ *This is the main service to which other services connect to
+ * IT access the other services based on user choosing soccer or nba
+ * Due to soccer's leagues the values were split
+ * Return is the body stored in core
  *
  * @author Alen Thomas 16333003
  *
  * */
-
-    // TODO: When user calls just the API
-    // TODO: Just a sport
-    // TODO: JUST LEAGUE & DATE
 
 @RestController
 public class Broadcaster {
@@ -55,6 +55,7 @@ public class Broadcaster {
             return restTemplate.getForObject(url, ClientSoccerRequest.class);
         }
         else{
+            //return empty if invalid input
             return new ClientSoccerRequest();
         }
     }
@@ -100,14 +101,14 @@ public class Broadcaster {
     }
 
 
-    public static final String SOCCERINFORMATION = "This is the soccer service, \nPlease insert the method call as follows: /league/date"
+    private static final String SOCCERINFORMATION = "This is the soccer service, \nPlease insert the method call as follows: /league/date"
             + "\nList of leagues:\n" + Arrays.toString(leagues);
 
-    public static final String NBAINFORMATION = "This is the soccer service, \nPlease insert the method call as follows: /date";
+    private static final String NBAINFORMATION = "This is the soccer service, \nPlease insert the method call as follows: /date";
 
-    public static final String INFORMATION = "Please choose between two sport services with valid inputs: 1.soccer/league/date 2.nba/date";
+    private static final String INFORMATION = "Please choose between two sport services with valid inputs: 1.soccer/league/date 2.nba/date. Date format = yyyy-mm-dd";
 
-    public static final String BASICINFORMATION = "Welcome to REST ASSURED sports score service. Currently we have 2 services, soccer(nomal football) and nba(Basketball)." + INFORMATION;
+    private static final String BASICINFORMATION = "Welcome to REST ASSURED sports score service. Currently we have 2 services, soccer(nomal football) and nba(Basketball)." + INFORMATION;
 
 
 }
