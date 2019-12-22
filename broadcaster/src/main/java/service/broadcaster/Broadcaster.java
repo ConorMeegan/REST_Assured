@@ -23,9 +23,6 @@ import java.util.List;
 @RestController
 public class Broadcaster {
 
-    //variable to store url of each sport services
-    private static final String[] hosts = new String[]{"Sample Host"};
-
     //Soccer Field
     private static final String SOCCER = "soccer";
     private static final String SOCCERSERVICE = "http://localhost:8083/";
@@ -78,39 +75,38 @@ public class Broadcaster {
         return restTemplate.getForObject(url, ClientNbaRequest.class);
     }
 
-    // TODO: Add remaning sports
-    /*
-    @RequestMapping(value="/{sport}/{league}/{date}",method=RequestMethod.GET)
-    public String getMatch(@PathVariable("sport") String sport, @PathVariable("league") String league, @PathVariable("date") String date) {
-        return "test";
-    }
-
-    @RequestMapping(value="/{sport}/{league}",method=RequestMethod.GET)
-    public String getDates(@PathVariable("sport") String sport, @PathVariable("league") String league) {
-        //Return details about the sport and its leagues
-        return "test";
-    }*/
-
     /**
      * Details about sport
      */
     @RequestMapping(value="/{sport}",method=RequestMethod.GET)
     public String getLeague(@PathVariable("sport") String sport) {
         if(sport.equals(SOCCER)){
-            //TODO:print out method to call API and its leagues
+            //print out method to call API and its leagues
+            return SOCCERINFORMATION;
         }
         else if(sport.equals(NBA)){
-            //TODO:print out correct call to NBA
+            //print out correct call to NBA
+            return NBAINFORMATION;
         }
         else{
-            //TODO:Return invalid sport service
+            //return information about sport
+            return INFORMATION;
         }
-        return "test";
     }
 
     @RequestMapping(value="/information",method=RequestMethod.GET)
     public String getSport() {
-        return "Test";
+        return BASICINFORMATION;
     }
+
+    public static final String SOCCERINFORMATION = "This is the soccer service, \nPlease insert the method call as follows: /league/date"
+            + "\nList of leagues:\n" + Arrays.toString(leagues);
+
+    public static final String NBAINFORMATION = "This is the soccer service, \nPlease insert the method call as follows: /date";
+
+    public static final String INFORMATION = "Please choose between two sport services with valid inputs: 1.soccer/league/date 2.nba/date";
+
+    public static final String BASICINFORMATION = "Welcome to REST ASSURED sports score service. Currently we have 2 services, soccer(nomal football) and nba(Basketball)." + INFORMATION;
+
 
 }
