@@ -10,7 +10,7 @@ public class ClientSoccerRequest {
     public static final String TYPE = "Soccer";
     public String league;
     public String date;
-    public ArrayList<MatchDetails> matches;
+    public ArrayList<MatchDetails> matches = new ArrayList<>();
 
     public ClientSoccerRequest(){}
 
@@ -18,7 +18,7 @@ public class ClientSoccerRequest {
         this.league = league;
         this.date = date;
         for (SoccerMatch soccermatch: soccerMatchList) {
-            matches.add(new MatchDetails(soccermatch.getSoccerHomeTeam().getName(), soccermatch.getSoccerAwayTeam().getName(), soccermatch.getSoccerScore().getSoccerHalfTime().getHomeTeam().toString(), soccermatch.getSoccerScore().getSoccerHalfTime().getAwayTeam().toString(), soccermatch.getStatus()));
+            matches.add(new MatchDetails(soccermatch.getSoccerHomeTeam().getName(), soccermatch.getSoccerAwayTeam().getName(), soccermatch.getSoccerScore().getSoccerFullTime().getHomeTeam().toString(), soccermatch.getSoccerScore().getSoccerFullTime().getAwayTeam().toString(), soccermatch.getStatus()));
         }
     }
 

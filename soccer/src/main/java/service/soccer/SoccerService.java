@@ -12,7 +12,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class SoccerService {
@@ -72,7 +74,27 @@ public class SoccerService {
     public ClientSoccerRequest getMatches(@PathVariable("league") String league, @PathVariable("date") String date) {
         String url = "https://api.football-data.org/v2/competitions/" + league +"/matches?dateFrom="+ date +"&dateTo=" + date;
         List<SoccerMatch> soccerMatches = getSoccerDateRequest(url).getSoccerMatches();
-        return new ClientSoccerRequest(league, date, soccerMatches);
+        return new ClientSoccerRequest(leagues.get(league), date, soccerMatches);
     }
+
+    /**
+     * HAshmap withtall the values of leagues and their corresponding names*/
+
+    private static final Map<String, String> leagues = new HashMap<String, String>(){
+        {
+            put("CL", "Champions League");
+            put("PPL", "Primeira Liga");
+            put("PL", "Premier League");
+            put("DED", "Eredivisie");
+            put("BL1", "Bundesliga");
+            put("FL1", "Ligue 1");
+            put("SA", "Serie A");
+            put("PD", "La Liga");
+            put("ELC", "Championship");
+            put("BSA", "Brazilian Division One");
+            put("WC", "World Cup");
+            put("EC", "European Championships");
+        }
+    };
 
 }
