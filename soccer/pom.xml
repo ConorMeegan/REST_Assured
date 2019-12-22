@@ -5,11 +5,7 @@
 
     <groupId>restassured</groupId>
     <artifactId>soccer</artifactId>
-<<<<<<< HEAD
     <version>1.0</version>
-=======
-    <version>0.1.0</version>
->>>>>>> 33f80c01193b8eda9713b8de8e48192ef5e0940c
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -19,14 +15,6 @@
 
     <dependencies>
         <dependency>
-<<<<<<< HEAD
-=======
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-        <dependency>
->>>>>>> 33f80c01193b8eda9713b8de8e48192ef5e0940c
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.6</version>
@@ -42,13 +30,10 @@
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-=======
->>>>>>> 33f80c01193b8eda9713b8de8e48192ef5e0940c
     </dependencies>
 
     <properties>
@@ -86,9 +71,4 @@
             </plugin>
         </plugins>
     </build>
-<<<<<<< HEAD
 </project>
-=======
-
-</project>
->>>>>>> 33f80c01193b8eda9713b8de8e48192ef5e0940c
