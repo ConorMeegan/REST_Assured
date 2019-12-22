@@ -79,6 +79,10 @@ public class NBAService {
     public ClientNbaRequest getNBAMatches(@PathVariable("date") String date) {
         String url = "https://api-nba-v1.p.rapidapi.com/games/date/"+date;
         List<NBAGame> nbaMatches = getNBADateRequest(url).getNBAApi().getNBAGames();
+       /* for (NBAGame nbaGame:nbaMatches) {
+            System.out.println(nbaGame.getHomeTeam().getFullName()+"\n"+ nbaGame.getAwayTeam().getFullName()+"\n"+ nbaGame.getHomeTeam().getNBAScore().getPoints()+"\n"+ nbaGame.getAwayTeam().getNBAScore().getPoints()+"\n"+ nbaGame.getStatusGame());
+        }*/
+
         return new ClientNbaRequest(date, nbaMatches);
     }
 }

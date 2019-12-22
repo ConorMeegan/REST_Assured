@@ -22,7 +22,7 @@ public class NBAHomeTeam {
     @SerializedName("logo")
     @Expose
     private String logo;
-    @SerializedName("NBAScore")
+    @SerializedName("score")
     @Expose
     private NBAScore NBAScore;
 

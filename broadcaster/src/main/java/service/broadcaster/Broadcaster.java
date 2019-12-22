@@ -99,6 +99,7 @@ public class Broadcaster {
         return BASICINFORMATION;
     }
 
+
     public static final String SOCCERINFORMATION = "This is the soccer service, \nPlease insert the method call as follows: /league/date"
             + "\nList of leagues:\n" + Arrays.toString(leagues);
 

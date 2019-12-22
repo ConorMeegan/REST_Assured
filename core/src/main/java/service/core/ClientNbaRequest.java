@@ -10,14 +10,21 @@ public class ClientNbaRequest {
 
     public static final String TYPE = "NBA";
     public String date;
-    public ArrayList<MatchDetails> matches;
+    public ArrayList<MatchDetails> matches = new ArrayList<>();
 
     public ClientNbaRequest(){}
 
     public ClientNbaRequest(String date, List<NBAGame> nbaGamesList){
         this.date = date;
         for (NBAGame nbaGame: nbaGamesList) {
-            matches.add(new MatchDetails(nbaGame.getHomeTeam().getFullName(), nbaGame.getAwayTeam().getFullName(), nbaGame.getHomeTeam().getNBAScore().getPoints(), nbaGame.getAwayTeam().getNBAScore().getPoints(), nbaGame.getStatusGame()));
+            String hometeam = nbaGame.getHomeTeam().getFullName();
+            String awayteam = nbaGame.getAwayTeam().getFullName();
+            String hometeamscore = nbaGame.getHomeTeam().getNBAScore().getPoints();
+            String awayteamscore = nbaGame.getAwayTeam().getNBAScore().getPoints();
+            String status = nbaGame.getStatusGame();
+
+            MatchDetails matchDetails = new MatchDetails(nbaGame.getHomeTeam().getFullName(), nbaGame.getAwayTeam().getFullName(), nbaGame.getHomeTeam().getNBAScore().getPoints(), nbaGame.getAwayTeam().getNBAScore().getPoints(), nbaGame.getStatusGame());
+            matches.add(matchDetails);
         }
     }
 

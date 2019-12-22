@@ -55,10 +55,10 @@ public class NBAGame {
     @SerializedName("statusGame")
     @Expose
     private String statusGame;
-    @SerializedName("NBAAwayTeam")
+    @SerializedName("vTeam")
     @Expose
     private NBAAwayTeam NBAAwayTeam;
-    @SerializedName("NBAHomeTeam")
+    @SerializedName("hTeam")
     @Expose
     private NBAHomeTeam NBAHomeTeam;
 
