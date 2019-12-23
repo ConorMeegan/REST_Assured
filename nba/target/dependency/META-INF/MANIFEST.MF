@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: nba
-Implementation-Version: 1.0
+Implementation-Version: 0.1.0
 Start-Class: service.nba.Application
 Spring-Boot-Classes: BOOT-INF/classes/
 Spring-Boot-Lib: BOOT-INF/lib/
