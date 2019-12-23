@@ -1,5 +1,11 @@
 package service.core;
 
+/**
+ * Model class to handle matche details
+ * Returns the home and away team names, score and the match status
+ *
+ * @author Alen Thomas 16333003*/
+
 public class MatchDetails {
 
     public String homeTeam;

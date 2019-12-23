@@ -1,10 +1,15 @@
 package service.core;
 
 import service.core.soccer.SoccerMatch;
-
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Model class to handle client request for Soccer matches
+ * Returns the league, date chosen and list of MatchDetails
+ *
+ * @author Alen Thomas 16333003*/
 public class ClientSoccerRequest {
 
     public static final String TYPE = "Soccer";

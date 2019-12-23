@@ -79,19 +79,22 @@ public class Broadcaster {
      */
     @RequestMapping(value="/{sport}",method=RequestMethod.GET)
     public String getLeague(@PathVariable("sport") String sport) {
-        if(sport.equals(SOCCER)){
-            //print out method to call API and its leagues
-            return SOCCERINFORMATION;
-        }
-        else if(sport.equals(NBA)){
-            //print out correct call to NBA
-            return NBAINFORMATION;
-        }
-        else{
-            //return information about sport
-            return INFORMATION;
+        switch (sport) {
+            case SOCCER:
+                //print out method to call API and its leagues
+                return SOCCERINFORMATION;
+            case NBA:
+                //print out correct call to NBA
+                return NBAINFORMATION;
+            default:
+                //return information about sport
+                return INFORMATION;
         }
     }
+
+    /**
+     * Details about broadcaster and how to call it
+     */
 
     @RequestMapping(value="/information",method=RequestMethod.GET)
     public String getSport() {

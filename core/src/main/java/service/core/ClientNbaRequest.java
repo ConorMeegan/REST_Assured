@@ -1,10 +1,14 @@
 package service.core;
 
 import service.core.nba.NBAGame;
-import service.core.soccer.SoccerMatch;
-
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Model class to handle client request for Nba matches
+ * Returns the date chosen and list of MatchDetails
+ *
+ * @author Alen Thomas 16333003*/
 
 public class ClientNbaRequest {
 
@@ -17,12 +21,6 @@ public class ClientNbaRequest {
     public ClientNbaRequest(String date, List<NBAGame> nbaGamesList){
         this.date = date;
         for (NBAGame nbaGame: nbaGamesList) {
-            String hometeam = nbaGame.getHomeTeam().getFullName();
-            String awayteam = nbaGame.getAwayTeam().getFullName();
-            String hometeamscore = nbaGame.getHomeTeam().getNBAScore().getPoints();
-            String awayteamscore = nbaGame.getAwayTeam().getNBAScore().getPoints();
-            String status = nbaGame.getStatusGame();
-
             MatchDetails matchDetails = new MatchDetails(nbaGame.getHomeTeam().getFullName(), nbaGame.getAwayTeam().getFullName(), nbaGame.getHomeTeam().getNBAScore().getPoints(), nbaGame.getAwayTeam().getNBAScore().getPoints(), nbaGame.getStatusGame());
             matches.add(matchDetails);
         }
