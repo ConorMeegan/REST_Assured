@@ -23,10 +23,10 @@ public class Broadcaster {
 
     //Soccer Field
     private static final String SOCCER = "soccer";
-    private static final String SOCCERSERVICE = "http://localhost:8083/";
+    private static final String SOCCERSERVICE = "http://soccer:8083/";
     //NBA field
     private static final String NBA = "nba";
-    private static final String NBASERVICE = "http://localhost:8082/";
+    private static final String NBASERVICE = "http://nba:8082/";
 
     //list of leagues for soccer
     private static final String[] leagues = new String[]{"CL", "PPL", "PL", "DED", "BL1", "FL1", "SA", "PD", "ELC","BSA", "WC", "EC"};
