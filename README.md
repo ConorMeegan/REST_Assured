@@ -5,34 +5,15 @@
 ### Mark Hartnett 16305706
 
 ##Project
-This is a Sport Score service which return a lis tof matches for specific sport for a date chosen by the user.
+This is a Sport Score service which return a list of matches for specific sport for a date chosen by the user.
 After deployment the user can call the sport like
 
-`http://localhost:8081/{sport}/{league}/{date}`
+To run the REST API, go to main project folder and run in git bash(have docker terminal running):
 
-* sport:nba or soccer
+`./build.sh` - build image and docker compose up
 
-* league: only applicable for soccer with the following inputs: 
-1. Champions League // CL
-2. Primeira Liga // PPL
-3. Premier League // PL
-4. Bundesliga // BL1
-5. Ligue 1 // FL1
-6. Serie A // SA
-7. La Liga // PD
-8. Championship // ELC
-9. Brazilian Division One // BSA
-10. World Cup // WC
-11. European Championships // EC
+Then in a new git bash run
 
-* date: in format "yyyy-mm-dd"
+`./run.sh` - this will run the client application to have better UI for the REST API
 
-To run the project, go to main project folder and run in git bash(have docker terminal running):
-1. `./build.sh` - build image and docker compose up
-
-In a new git bash run
-2. `./run.sh` - this will run the client
-
-Clean after running to have smaller file when zippping:
-2. `clean.sh`
 

@@ -62,7 +62,7 @@ public class Client {
             }
 
             // send GET request to broadcaster
-            System.out.println("Requesting data for " + league.split(regex)[0] + " from the date " + dateString);
+            System.out.println("Requesting data for " + league.split(regex)[0] + " for the date " + dateString);
             String leagueCode = league.split(regex)[1].strip();
             String leagueText = league.split(regex)[0].strip();
             ArrayList<MatchDetails> matches = null;
