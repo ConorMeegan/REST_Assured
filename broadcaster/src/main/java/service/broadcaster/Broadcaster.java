@@ -50,7 +50,7 @@ public class Broadcaster {
             String url = SOCCERSERVICE + league + "/" + date;
 
             //Return URL for the ClientSoccerRequest
-            return restTemplate.getForObject(url, ClientSoccerRequest.class);
+            return (ClientSoccerRequest) restTemplate.getForObject(url, ClientSoccerRequest.class);
         }
         else{
             //return empty if invalid input
@@ -71,7 +71,7 @@ public class Broadcaster {
         String url = NBASERVICE + date;
 
         //Return URL for the ClientNbaRequest
-        return restTemplate.getForObject(url, ClientNbaRequest.class);
+        return (ClientNbaRequest) restTemplate.getForObject(url, ClientNbaRequest.class);
     }
 
     /**
