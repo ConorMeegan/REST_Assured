@@ -33,3 +33,6 @@ To run the project, go to main project folder and run in git bash(have docker te
 In a new git bash run
 2. `./run.sh` - this will run the client
 
+Clean after running to have smaller file when zippping:
+2. `clean.sh`
+
