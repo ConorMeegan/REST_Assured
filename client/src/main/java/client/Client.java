@@ -16,12 +16,12 @@ public class Client {
     private static final String regex = "//";
 
     public static void main(String[] args){
-        String host = "localhost:8081";
+        String host = "localhost";
         if (args.length > 0)
             host = args[0];
 
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://" + host + "/";
+        String url = "http://" + host + ":8081/";
 
         // print welcome message
         System.out.println("Welcome to the Live Score System, created by");

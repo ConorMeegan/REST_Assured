@@ -27,3 +27,9 @@ After deployment the user can call the sport like
 
 * date: in format "yyyy-mm-dd"
 
+To run the project, go to main project folder and run in git bash(have docker terminal running):
+1. `./build.sh` - build image and docker compose up
+
+In a new git bash run
+2. `./run.sh` - this will run the client
+

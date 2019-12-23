@@ -14,4 +14,4 @@ docker build -t nba:latest .
 cd ../client
 mvn clean compile install package
 cd ..
-#docker-compose up
+docker-compose up
